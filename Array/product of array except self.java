@@ -1,4 +1,4 @@
-product of array except self
+238 product of array except self
 /*
 better solution:
 for example: [1,2,3,4], 
