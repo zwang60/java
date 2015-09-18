@@ -1,6 +1,6 @@
 find peak element
 /*
-二分法
+二分法，时间复杂度O(logn)
 
 Solution:
 The difficulty is to find the peak element in O(logn).
