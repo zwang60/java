@@ -19,3 +19,33 @@ http://codesniper.blogspot.com/2015/03/128-longest-consecutive-sequence.html
 Use a hashset to store all the integers, determine the upper boundary and lower boundary by checking if the hashset contains the consecutive numbers one by one. 
 If yes, remove the number in the hashset. So the total time will be O(2*n)=O(n). O(n) extra space
 */
+public class Solution {
+    public int longestConsecutive(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int max = 0;
+        HashSet<Integer> set = new HashSet<>();
+        for(int i = 0; i < nums.length; i++){
+            set.add(nums[i]);
+        }
+        while(!set.isEmpty()){
+            Iterator iter = set.iterator();
+            int item = (Integer)iter.next();
+            set.remove(item);
+            int len = 1;
+            int i = item - 1;
+            while(set.contains(i)){
+                len++;
+                set.remove(i--);
+            }
+            i = item + 1;
+            while(set.contains(i)){
+                len++;
+                set.remove(i++);
+            }
+            max = Math.max(max, len);
+        }
+        return max;
+    }
+}
